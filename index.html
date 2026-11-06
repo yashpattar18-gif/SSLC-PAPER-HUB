@@ -5,170 +5,241 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SSLC Paper Hub</title>
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#eef2ff;color:#172554}
-header{background:linear-gradient(135deg,#111827,#3730a3);color:white;text-align:center;padding:30px 12px}
-header h1{margin:0;font-size:29px}
-.tabs{display:flex;justify-content:center;gap:12px;padding:22px}
-.tabs button{padding:13px 22px;border:0;border-radius:9px;background:white;color:#1e3a8a;font-weight:bold}
-.tabs button.active{background:#2563eb;color:white}
-.paper-box{display:none;background:white;width:95%;max-width:1100px;margin:10px auto 30px;padding:18px;border-radius:13px;overflow-x:auto;box-shadow:0 4px 15px #0002}
-.paper-box.show{display:block}
-h2{text-align:center;color:#3730a3}
-table{width:100%;min-width:650px;border-collapse:collapse}
-th,td{border:1px solid #dbeafe;padding:12px;text-align:center}
-th{background:#1e3a8a;color:white}
-tr:nth-child(even){background:#f5f7ff}
-.pdf-btn{display:inline-block;padding:9px 11px;margin:3px;border-radius:6px;text-decoration:none;color:white;font-size:13px;font-weight:bold}
-.view{background:#2563eb}
-.download{background:#16a34a}
-footer{text-align:center;background:#111827;color:white;padding:20px}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f1f5f9;
+  color: #172554;
+}
+header {
+  background: #172554;
+  color: white;
+  text-align: center;
+  padding: 28px 12px;
+}
+header h1 { font-size: 28px; }
+header p { margin-top: 8px; }
+.container {
+  max-width: 950px;
+  margin: auto;
+  padding: 18px;
+}
+.boards {
+  display: flex;
+  gap: 12px;
+  margin: 18px 0;
+}
+button, .btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+}
+.board-btn {
+  flex: 1;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+}
+.board-btn:hover { background: #1d4ed8; }
+.section {
+  display: none;
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  margin-top: 15px;
+  box-shadow: 0 2px 10px #0001;
+}
+.section.active { display: block; }
+h2 { margin-bottom: 14px; }
+h3 {
+  margin: 18px 0 10px;
+  color: #1d4ed8;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+}
+th, td {
+  border: 1px solid #dbeafe;
+  padding: 10px;
+  text-align: left;
+}
+th { background: #dbeafe; }
+.btn {
+  background: #2563eb;
+  color: white;
+  margin: 3px;
+  font-size: 13px;
+}
+.download { background: #15803d; }
+.note {
+  background: #fff7ed;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 14px;
+  color: #9a3412;
+}
+footer {
+  text-align: center;
+  padding: 22px;
+  color: #64748b;
+}
+@media(max-width:600px) {
+  .boards { flex-direction: column; }
+  table { font-size: 13px; }
+  th, td { padding: 7px; }
+  .btn { padding: 9px; }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>📚 SSLC Paper Hub</h1>
-<p>Previous Year & Model Question Papers</p>
-<p>Study Smart • Practice Better</p>
+  <h1>📚 SSLC Paper Hub</h1>
+  <p>Previous Year & Model Question Papers</p>
+  <p>Free Study Resources for Students</p>
 </header>
 
-<div class="tabs">
-<button class="active" onclick="showBoard('state',this)">STATE BOARD</button>
-<button onclick="showBoard('cbse',this)">CBSE</button>
-</div>
+<div class="container">
 
-<div id="state" class="paper-box show">
-<h2>📘 Karnataka STATE BOARD - 2026</h2>
-<table>
-<tr>
-<th>Subject</th>
-<th>Previous Year Question Papers</th>
-<th>Model Question Papers</th>
-</tr>
+  <h2>Select Your Board</h2>
 
-<tr>
-<td>Kannada</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View PDF</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
+  <div class="boards">
+    <button class="board-btn"
+      onclick="showBoard('state')">
+      Karnataka State Board
+    </button>
 
-<tr>
-<td>English</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View PDF</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
+    <button class="board-btn"
+      onclick="showBoard('cbse')">
+      CBSE Board
+    </button>
+  </div>
 
-<tr>
-<td>Hindi</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
+  <section id="state" class="section">
+    <h2>🏫 Karnataka State Board - SSLC</h2>
 
-<tr>
-<td>Mathematics</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
+    <h3>Previous Year Question Papers</h3>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>Question Papers</th>
+      </tr>
+      <tr><td>Kannada</td><td>
+        <a class="btn" target="_blank"
+        href="https://kseab.karnataka.gov.in/">
+        View Papers</a></td></tr>
+      <tr><td>English</td><td>
+        <a class="btn" target="_blank"
+        href="https://kseab.karnataka.gov.in/">
+        View Papers</a></td></tr>
+      <tr><td>Hindi</td><td>
+        <a class="btn" target="_blank"
+        href="https://kseab.karnataka.gov.in/">
+        View Papers</a></td></tr>
+      <tr><td>Mathematics</td><td>
+        <a class="btn" target="_blank"
+        href="https://kseab.karnataka.gov.in/">
+        View Papers</a></td></tr>
+      <tr><td>Science</td><td>
+        <a class="btn" target="_blank"
+        href="https://kseab.karnataka.gov.in/">
+        View Papers</a></td></tr>
+      <tr><td>Social Science</td><td>
+        <a class="btn" target="_blank"
+        href="https://kseab.karnataka.gov.in/">
+        View Papers</a></td></tr>
+    </table>
 
-<tr>
-<td>Science</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
+    <h3>Model Question Papers</h3>
+    <p>
+      <a class="btn" target="_blank"
+      href="https://kseab.karnataka.gov.in/">
+      KSEAB Official Model Papers</a>
+    </p>
 
-<tr>
-<td>Social Science</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-</table>
-</div>
+    <div class="note">
+      Karnataka Board papers: Open the official KSEAB
+      website and select SSLC question papers.
+    </div>
+  </section>
 
-<div id="cbse" class="paper-box">
-<h2>📗 CBSE - English Medium</h2>
-<table>
-<tr>
-<th>Subject</th>
-<th>Previous Year Question Papers</th>
-<th>Model Question Papers</th>
-</tr>
-<tr>
-<td>English</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Hindi</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Mathematics</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Science</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Social Science</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-</table>
+  <section id="cbse" class="section">
+    <h2>🏫 CBSE Class 10</h2>
+
+    <h3>Previous Year Question Papers</h3>
+    <p>
+      <a class="btn" target="_blank"
+      href="https://www.cbse.gov.in/cbsenew/question-paper.html">
+      View Previous Year Papers</a>
+    </p>
+
+    <h3>2026 Question Papers</h3>
+    <p>
+      <a class="btn" target="_blank"
+      href="https://www.cbse.gov.in/cbsenew/question-paper.html">
+      View 2026 Papers</a>
+    </p>
+
+    <h3>Model / Sample Question Papers 2025-26</h3>
+    <table>
+      <tr>
+        <th>Subject</th>
+        <th>View PDF</th>
+      </tr>
+      <tr><td>English</td><td>
+        <a class="btn" target="_blank"
+        href="https://www.cbse.gov.in/cbsenew/samplepaper.html">
+        View</a></td></tr>
+      <tr><td>Hindi</td><td>
+        <a class="btn" target="_blank"
+        href="https://www.cbse.gov.in/cbsenew/samplepaper.html">
+        View</a></td></tr>
+      <tr><td>Mathematics</td><td>
+        <a class="btn" target="_blank"
+        href="https://www.cbse.gov.in/cbsenew/samplepaper.html">
+        View</a></td></tr>
+      <tr><td>Science</td><td>
+        <a class="btn" target="_blank"
+        href="https://www.cbse.gov.in/cbsenew/samplepaper.html">
+        View</a></td></tr>
+      <tr><td>Social Science</td><td>
+        <a class="btn" target="_blank"
+        href="https://www.cbse.gov.in/cbsenew/samplepaper.html">
+        View</a></td></tr>
+    </table>
+
+    <div class="note">
+      CBSE official pages contain subject-wise paper
+      downloads and sample papers.
+    </div>
+  </section>
+
 </div>
 
 <footer>
-<p>© 2026 SSLC Paper Hub</p>
-<p>Made for Students ❤️</p>
+  <p>© 2026 SSLC Paper Hub</p>
+  <p>Made with ❤️ for Students</p>
 </footer>
 
 <script>
-function showBoard(board,button){
-document.querySelectorAll(".paper-box").forEach(box=>box.classList.remove("show"));
-document.getElementById(board).classList.add("show");
-document.querySelectorAll(".tabs button").forEach(btn=>btn.classList.remove("active"));
-button.classList.add("active");
+function showBoard(board) {
+  document.querySelectorAll('.section')
+    .forEach(section => section.classList.remove('active'));
+
+  document.getElementById(board).classList.add('active');
 }
 </script>
 
