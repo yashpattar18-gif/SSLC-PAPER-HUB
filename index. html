@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SSLC Paper Hub</title>
 
 <style>
@@ -14,36 +15,44 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f1f4fb;
-  color: #172033;
+  background: #eef2ff;
+  color: #172554;
 }
 
 header {
-  background: #172554;
+  background: linear-gradient(135deg, #111827, #3730a3);
   color: white;
   text-align: center;
-  padding: 25px 12px;
+  padding: 35px 15px;
 }
 
 header h1 {
-  margin: 0 0 8px;
+  font-size: 30px;
+  margin: 0;
+}
+
+header p {
+  color: #dbeafe;
 }
 
 .tabs {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  padding: 20px 10px;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 25px 10px;
 }
 
 .tabs button {
-  padding: 13px 22px;
-  border: 0;
-  border-radius: 9px;
-  background: #dbeafe;
-  color: #172554;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 10px;
+  background: white;
+  color: #1e3a8a;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  box-shadow: 0 3px 10px #00000015;
 }
 
 .tabs button.active {
@@ -53,13 +62,13 @@ header h1 {
 
 .paper-box {
   display: none;
-  background: white;
-  margin: 10px auto 30px;
-  padding: 18px;
   width: 95%;
   max-width: 1100px;
-  border-radius: 12px;
-  box-shadow: 0 3px 15px #00000012;
+  margin: 10px auto 35px;
+  padding: 22px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px #00000012;
   overflow-x: auto;
 }
 
@@ -68,19 +77,20 @@ header h1 {
 }
 
 h2 {
-  color: #1d4ed8;
   text-align: center;
+  color: #3730a3;
 }
 
 table {
   width: 100%;
-  min-width: 650px;
+  min-width: 680px;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 th, td {
-  border: 1px solid #d5dbea;
-  padding: 13px 10px;
+  border: 1px solid #dbeafe;
+  padding: 14px 10px;
   text-align: center;
 }
 
@@ -90,28 +100,48 @@ th {
 }
 
 tr:nth-child(even) {
-  background: #f4f7ff;
+  background: #f8faff;
 }
 
-a {
+.pdf-btn {
   display: inline-block;
-  background: #2563eb;
-  color: white;
-  padding: 8px 10px;
-  margin: 3px;
-  border-radius: 6px;
+  padding: 9px 11px;
+  margin: 4px;
+  border-radius: 7px;
   text-decoration: none;
+  color: white;
   font-size: 13px;
+  font-weight: bold;
 }
 
-a:hover {
-  background: #1e40af;
+.view-btn {
+  background: #2563eb;
+}
+
+.download-btn {
+  background: #16a34a;
 }
 
 footer {
+  background: #111827;
+  color: white;
   text-align: center;
   padding: 20px;
-  color: #64748b;
+  margin-top: 30px;
+}
+
+@media(max-width:600px) {
+  header h1 {
+    font-size: 24px;
+  }
+
+  .paper-box {
+    padding: 12px;
+  }
+
+  .tabs button {
+    padding: 12px 18px;
+  }
 }
 </style>
 </head>
@@ -121,6 +151,7 @@ footer {
 <header>
   <h1>📚 SSLC Paper Hub</h1>
   <p>Previous Year & Model Question Papers</p>
+  <p>Study Smart • Practice Better • Score Higher</p>
 </header>
 
 <div class="tabs">
@@ -133,102 +164,176 @@ footer {
   </button>
 </div>
 
+<!-- STATE BOARD -->
+
 <div id="state" class="paper-box show">
-  <h2>STATE BOARD – Karnataka</h2>
 
-  <table>
-    <tr>
-      <th>Subject</th>
-      <th>Previous Year Question Papers</th>
-      <th>Model Question Papers</th>
-    </tr>
+<h2>📘 Karnataka STATE BOARD</h2>
 
-    <tr>
-      <td>Kannada</td>
-      <td><a href="STATE_KANNADA_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="STATE_KANNADA_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<table>
+<tr>
+  <th>Subject</th>
+  <th>Previous Year Question Papers</th>
+  <th>Model Question Papers</th>
+</tr>
 
-    <tr>
-      <td>English</td>
-      <td><a href="STATE_ENGLISH_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="STATE_ENGLISH_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>Kannada</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Hindi</td>
-      <td><a href="STATE_HINDI_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="STATE_HINDI_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>English</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Mathematics</td>
-      <td><a href="STATE_MATHS_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="STATE_MATHS_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>Hindi</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Science</td>
-      <td><a href="STATE_SCIENCE_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="STATE_SCIENCE_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>Mathematics</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Social Science</td>
-      <td><a href="STATE_SOCIAL_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="STATE_SOCIAL_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
-  </table>
+<tr>
+<td>Science</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
+
+<tr>
+<td>Social Science</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
+</table>
 </div>
 
+<!-- CBSE -->
+
 <div id="cbse" class="paper-box">
-  <h2>CBSE – English Medium</h2>
 
-  <table>
-    <tr>
-      <th>Subject</th>
-      <th>Previous Year Question Papers</th>
-      <th>Model Question Papers</th>
-    </tr>
+<h2>📗 CBSE – English Medium</h2>
 
-    <tr>
-      <td>English</td>
-      <td><a href="CBSE_ENGLISH_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="CBSE_ENGLISH_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<table>
+<tr>
+  <th>Subject</th>
+  <th>Previous Year Question Papers</th>
+  <th>Model Question Papers</th>
+</tr>
 
-    <tr>
-      <td>Hindi</td>
-      <td><a href="CBSE_HINDI_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="CBSE_HINDI_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>English</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Mathematics</td>
-      <td><a href="CBSE_MATHS_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="CBSE_MATHS_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>Hindi</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Science</td>
-      <td><a href="CBSE_SCIENCE_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="CBSE_SCIENCE_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
+<tr>
+<td>Mathematics</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
 
-    <tr>
-      <td>Social Science</td>
-      <td><a href="CBSE_SOCIAL_PREVIOUS_PDF_URL">PDF 1</a></td>
-      <td><a href="CBSE_SOCIAL_MODEL_PDF_URL">PDF 1</a></td>
-    </tr>
-  </table>
+<tr>
+<td>Science</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
+
+<tr>
+<td>Social Science</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+<td>
+  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
+  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+</td>
+</tr>
+</table>
 </div>
 
 <footer>
-  © 2026 SSLC Paper Hub
+  <p>© 2026 SSLC Paper Hub</p>
+  <p>Made for Students ❤️</p>
 </footer>
 
 <script>
 function showBoard(board, button) {
+
   document.querySelectorAll(".paper-box").forEach(box => {
     box.classList.remove("show");
   });
