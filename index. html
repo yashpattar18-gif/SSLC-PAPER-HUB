@@ -4,347 +4,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SSLC Paper Hub</title>
-
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef2ff;
-  color: #172554;
-}
-
-header {
-  background: linear-gradient(135deg, #111827, #3730a3);
-  color: white;
-  text-align: center;
-  padding: 35px 15px;
-}
-
-header h1 {
-  font-size: 30px;
-  margin: 0;
-}
-
-header p {
-  color: #dbeafe;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  padding: 25px 10px;
-}
-
-.tabs button {
-  border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  background: white;
-  color: #1e3a8a;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 3px 10px #00000015;
-}
-
-.tabs button.active {
-  background: #2563eb;
-  color: white;
-}
-
-.paper-box {
-  display: none;
-  width: 95%;
-  max-width: 1100px;
-  margin: 10px auto 35px;
-  padding: 22px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px #00000012;
-  overflow-x: auto;
-}
-
-.paper-box.show {
-  display: block;
-}
-
-h2 {
-  text-align: center;
-  color: #3730a3;
-}
-
-table {
-  width: 100%;
-  min-width: 680px;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  border: 1px solid #dbeafe;
-  padding: 14px 10px;
-  text-align: center;
-}
-
-th {
-  background: #1e3a8a;
-  color: white;
-}
-
-tr:nth-child(even) {
-  background: #f8faff;
-}
-
-.pdf-btn {
-  display: inline-block;
-  padding: 9px 11px;
-  margin: 4px;
-  border-radius: 7px;
-  text-decoration: none;
-  color: white;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.view-btn {
-  background: #2563eb;
-}
-
-.download-btn {
-  background: #16a34a;
-}
-
-footer {
-  background: #111827;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-@media(max-width:600px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  .paper-box {
-    padding: 12px;
-  }
-
-  .tabs button {
-    padding: 12px 18px;
-  }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial;background:#eef2ff;color:#172554}
+header{background:linear-gradient(135deg,#111827,#3730a3);color:white;text-align:center;padding:30px 12px}
+header h1{margin:0;font-size:29px}
+.tabs{display:flex;justify-content:center;gap:12px;padding:22px}
+.tabs button{padding:13px 22px;border:0;border-radius:9px;background:white;color:#1e3a8a;font-weight:bold}
+.tabs button.active{background:#2563eb;color:white}
+.paper-box{display:none;background:white;width:95%;max-width:1100px;margin:10px auto 30px;padding:18px;border-radius:13px;overflow-x:auto;box-shadow:0 4px 15px #0002}
+.paper-box.show{display:block}
+h2{text-align:center;color:#3730a3}
+table{width:100%;min-width:650px;border-collapse:collapse}
+th,td{border:1px solid #dbeafe;padding:12px;text-align:center}
+th{background:#1e3a8a;color:white}
+tr:nth-child(even){background:#f5f7ff}
+.pdf-btn{display:inline-block;padding:9px 11px;margin:3px;border-radius:6px;text-decoration:none;color:white;font-size:13px;font-weight:bold}
+.view{background:#2563eb}
+.download{background:#16a34a}
+footer{text-align:center;background:#111827;color:white;padding:20px}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>📚 SSLC Paper Hub</h1>
-  <p>Previous Year & Model Question Papers</p>
-  <p>Study Smart • Practice Better • Score Higher</p>
+<h1>📚 SSLC Paper Hub</h1>
+<p>Previous Year & Model Question Papers</p>
+<p>Study Smart • Practice Better</p>
 </header>
 
 <div class="tabs">
-  <button class="active" onclick="showBoard('state', this)">
-    STATE BOARD
-  </button>
-
-  <button onclick="showBoard('cbse', this)">
-    CBSE
-  </button>
+<button class="active" onclick="showBoard('state',this)">STATE BOARD</button>
+<button onclick="showBoard('cbse',this)">CBSE</button>
 </div>
 
-<!-- STATE BOARD -->
-
 <div id="state" class="paper-box show">
-
-<h2>📘 Karnataka STATE BOARD</h2>
-
+<h2>📘 Karnataka STATE BOARD - 2026</h2>
 <table>
 <tr>
-  <th>Subject</th>
-  <th>Previous Year Question Papers</th>
-  <th>Model Question Papers</th>
+<th>Subject</th>
+<th>Previous Year Question Papers</th>
+<th>Model Question Papers</th>
 </tr>
 
 <tr>
 <td>Kannada</td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View PDF</a>
+<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
 </td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
 </td>
 </tr>
 
 <tr>
 <td>English</td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View PDF</a>
+<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
 </td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
 </td>
 </tr>
 
 <tr>
 <td>Hindi</td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
 </td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
 </td>
 </tr>
 
 <tr>
 <td>Mathematics</td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
 </td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
 </td>
 </tr>
 
 <tr>
 <td>Science</td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
 </td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
 </td>
 </tr>
 
 <tr>
 <td>Social Science</td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
 </td>
 <td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
+<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
+<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
 </td>
 </tr>
 </table>
 </div>
 
-<!-- CBSE -->
-
 <div id="cbse" class="paper-box">
-
-<h2>📗 CBSE – English Medium</h2>
-
+<h2>📗 CBSE - English Medium</h2>
 <table>
 <tr>
-  <th>Subject</th>
-  <th>Previous Year Question Papers</th>
-  <th>Model Question Papers</th>
+<th>Subject</th>
+<th>Previous Year Question Papers</th>
+<th>Model Question Papers</th>
 </tr>
-
 <tr>
 <td>English</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
+<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
+<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
 </tr>
-
 <tr>
 <td>Hindi</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
+<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
+<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
 </tr>
-
 <tr>
 <td>Mathematics</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
+<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
+<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
 </tr>
-
 <tr>
 <td>Science</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
+<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
+<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
 </tr>
-
 <tr>
 <td>Social Science</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
+<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
+<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
 </tr>
 </table>
 </div>
 
 <footer>
-  <p>© 2026 SSLC Paper Hub</p>
-  <p>Made for Students ❤️</p>
+<p>© 2026 SSLC Paper Hub</p>
+<p>Made for Students ❤️</p>
 </footer>
 
 <script>
-function showBoard(board, button) {
-
-  document.querySelectorAll(".paper-box").forEach(box => {
-    box.classList.remove("show");
-  });
-
-  document.getElementById(board).classList.add("show");
-
-  document.querySelectorAll(".tabs button").forEach(btn => {
-    btn.classList.remove("active");
-  });
-
-  button.classList.add("active");
+function showBoard(board,button){
+document.querySelectorAll(".paper-box").forEach(box=>box.classList.remove("show"));
+document.getElementById(board).classList.add("show");
+document.querySelectorAll(".tabs button").forEach(btn=>btn.classList.remove("active"));
+button.classList.add("active");
 }
 </script>
 
