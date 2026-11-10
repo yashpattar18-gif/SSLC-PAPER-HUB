@@ -7,312 +7,490 @@
 <title>SSLC Paper Hub</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#f1f5ff;color:#172554}
-header{background:linear-gradient(135deg,#102044,#4f46e5,#7c3aed);color:white;text-align:center;padding:32px 15px}
-header h1{font-size:32px;margin:10px}
-header p{color:#dbeafe;margin:5px}
-.container{max-width:950px;margin:auto;padding:20px}
-h2{text-align:center;margin:20px 0}
-.boards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.board{padding:22px 10px;border:0;border-radius:14px;background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;font-size:17px;font-weight:bold;cursor:pointer}
-.board:nth-child(2){background:linear-gradient(135deg,#7c3aed,#9333ea)}
-.section{display:none;background:white;padding:18px;margin-top:20px;border-radius:15px}
-.section.active{display:block}
-.tabs,.years{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
-.tabs button,.years button{padding:10px 13px;border:1px solid #ddd;border-radius:9px;background:#eff6ff;cursor:pointer;font-weight:bold}
-.tabs button.active,.years button.active{background:#2563eb;color:white}
-.search{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;margin:10px 0;font-size:16px}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left}
-th{background:#eff6ff}
-.btn{display:inline-block;padding:9px 12px;margin:3px;border-radius:7px;text-decoration:none;color:white;background:#2563eb;font-size:13px;font-weight:bold;border:0;cursor:pointer}
-.download{background:#15803d}
-.note{margin-top:15px;background:#fff7ed;color:#9a3412;padding:12px;border-radius:10px;font-size:13px}
-footer{text-align:center;padding:25px;color:#64748b}
-#viewerBox{display:none;margin-top:25px;background:white;padding:12px;border-radius:12px}
-#pdfViewer{width:100%;height:75vh;border:1px solid #ddd}
-@media(max-width:550px){.boards{grid-template-columns:1fr}}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef3ff;
+    color: #172554;
+}
+
+header {
+    background: linear-gradient(135deg,#1d4ed8,#4338ca);
+    color: white;
+    text-align: center;
+    padding: 25px 12px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 10px 0 0;
+}
+
+.container {
+    max-width: 950px;
+    margin: 20px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px #00000012;
+    margin-bottom: 18px;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    color: #1e40af;
+}
+
+button, select, input {
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    border-radius: 9px;
+    padding: 12px 18px;
+    font-weight: bold;
+}
+
+.board-buttons,
+.exam-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.board-btn {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.exam-btn {
+    background: #e0e7ff;
+    color: #3730a3;
+}
+
+.active {
+    background: #2563eb !important;
+    color: white !important;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 18px 0;
+}
+
+.controls input,
+.controls select {
+    flex: 1;
+    min-width: 150px;
+    padding: 13px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: white;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th {
+    background: #eff6ff;
+    color: #1e3a8a;
+    padding: 17px 12px;
+    text-align: left;
+}
+
+td {
+    padding: 18px 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.subject {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.view-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.download-btn {
+    background: #15803d;
+    color: white;
+}
+
+.message {
+    text-align: center;
+    color: #64748b;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+}
+
+#pdfSection {
+    display: none;
+}
+
+#pdfFrame {
+    width: 100%;
+    height: 75vh;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+}
+
+.close-btn {
+    background: #dc2626;
+    color: white;
+    margin-bottom: 12px;
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    td {
+        padding: 14px 8px;
+    }
+
+    .action-buttons button {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>📚 SSLC Paper Hub</h1>
-<p>Annual Exam • Previous Year • Model Papers</p>
-<p>Study Smart • Practice Better</p>
+    <h1>📚 SSLC Paper Hub</h1>
+    <p>Previous Year • Main Exam • Midterm Exam</p>
 </header>
 
 <div class="container">
 
-<h2>Choose Your Board</h2>
+<div class="card">
+    <h2>Select Board</h2>
 
-<div class="boards">
-<button class="board" onclick="openBoard('state')">
-🏫 Karnataka State Board
-</button>
+    <div class="board-buttons">
+        <button class="board-btn active" id="stateBtn"
+        onclick="selectBoard('state')">
+        Karnataka State Board
+        </button>
 
-<button class="board" onclick="openBoard('cbse')">
-🎓 CBSE Class 10
-</button>
+        <button class="board-btn" id="cbseBtn"
+        onclick="selectBoard('cbse')">
+        CBSE
+        </button>
+    </div>
+
+    <h2>Select Exam</h2>
+
+    <div class="exam-buttons">
+        <button class="exam-btn active" id="mainBtn"
+        onclick="selectExam('main')">
+        Main Exam
+        </button>
+
+        <button class="exam-btn" id="midtermBtn"
+        onclick="selectExam('midterm')">
+        Midterm Exam
+        </button>
+    </div>
+
+    <div class="controls">
+        <select id="yearSelect" onchange="renderTable()">
+        </select>
+
+        <input type="text" id="searchInput"
+        placeholder="🔎 Search Subject..."
+        oninput="renderTable()">
+    </div>
 </div>
 
-<div id="state" class="section">
-<h2>Karnataka State Board</h2>
-<div class="tabs" id="stateTabs"></div>
-<div id="stateContent"></div>
+<div class="card">
+    <h2 id="tableTitle">Question Papers</h2>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th id="examHeading">Main Exam</th>
+                </tr>
+            </thead>
+            <tbody id="paperTable"></tbody>
+        </table>
+    </div>
 </div>
 
-<div id="cbse" class="section">
-<h2>CBSE Class 10</h2>
-<div class="tabs" id="cbseTabs"></div>
-<div id="cbseContent"></div>
-</div>
-
-<div id="viewerBox">
-<h2>📄 Question Paper Preview</h2>
-<iframe id="pdfViewer" title="Question Paper"></iframe>
-</div>
-
-<div class="note">
-PDF links will work after adding the actual direct PDF URLs.
-View Paper opens the PDF preview here. Download PDF downloads the linked PDF where supported.
+<div class="card" id="pdfSection">
+    <button class="close-btn" onclick="closePDF()">✖ Close PDF</button>
+    <h2 id="pdfTitle">PDF Viewer</h2>
+    <iframe id="pdfFrame"></iframe>
 </div>
 
 </div>
 
 <footer>
-© 2026 SSLC Paper Hub ❤️
+    © 2026 SSLC Paper Hub | Study Smart 📖
 </footer>
 
 <script>
 
-// SUBJECTS
+// ================= SUBJECTS =================
 
-const subjects = {
-state:[
-"Kannada",
-"English",
-"Hindi",
-"Mathematics",
-"Science",
-"Social Science"
-],
+const SUBJECTS = {
+    state: [
+        "Kannada",
+        "English",
+        "Hindi",
+        "Mathematics",
+        "Science",
+        "Social Science"
+    ],
 
-cbse:[
-"English",
-"Hindi",
-"Kannada",
-"Mathematics",
-"Science",
-"Social Science"
-]
+    cbse: [
+        "English",
+        "Hindi",
+        "Kannada",
+        "Mathematics",
+        "Science",
+        "Social Science"
+    ]
 };
 
-// ADD YOUR DIRECT PDF LINKS HERE
-// Format: "Year|Subject": "Direct PDF URL"
+// ================= YEARS =================
+
+const YEARS = [
+    2026, 2025, 2024, 2023, 2022, 2021
+];
+
+// ================= PDF LINKS =================
+// ಇಲ್ಲಿ ನಿನ್ನ ನಿಜವಾದ PDF URL ಸೇರಿಸಬೇಕು.
+// Example:
+// "2026|Kannada": "https://example.com/kannada.pdf"
 
 const PAPER_LINKS = {
-state:{
-annual1:{},
-annual2:{},
-previous:{},
-model:{}
-},
+    state: {
+        main: {},
+        midterm: {}
+    },
 
-cbse:{
-annual1:{},
-annual2:{},
-previous:{},
-model:{}
-}
+    cbse: {
+        main: {},
+        midterm: {}
+    }
 };
 
-const examTypes = {
-annual1:"Annual Exam 1",
-annual2:"Annual Exam 2",
-previous:"Previous Year Papers",
-model:"Model Question Papers"
-};
+// ================= VARIABLES =================
 
-const years = {
-state:{
-annual1:["2026","2025","2024"],
-annual2:["2026","2025","2024"],
-previous:["2026","2025","2024","2023","2022","2021"],
-model:["2026","2025","2024","2023"]
-},
+let currentBoard = "state";
+let currentExam = "main";
 
-cbse:{
-annual1:["2026","2025","2024"],
-annual2:["2026","2025","2024"],
-previous:["2026","2025","2024","2023","2022","2021"],
-model:["2025-26","2024-25","2023-24","2022-23"]
-}
-};
+// ================= BOARD =================
 
-function openBoard(board){
-document.querySelectorAll(".section").forEach(s=>{
-s.classList.remove("active");
-});
+function selectBoard(board) {
+    currentBoard = board;
 
-document.getElementById(board).classList.add("active");
+    document.getElementById("stateBtn")
+    .classList.toggle("active", board === "state");
 
-showExamTabs(board);
+    document.getElementById("cbseBtn")
+    .classList.toggle("active", board === "cbse");
+
+    renderTable();
 }
 
-function showExamTabs(board){
+// ================= EXAM =================
 
-const tabBox=document.getElementById(board+"Tabs");
+function selectExam(exam) {
+    currentExam = exam;
 
-tabBox.innerHTML="";
+    document.getElementById("mainBtn")
+    .classList.toggle("active", exam === "main");
 
-Object.keys(examTypes).forEach((type,index)=>{
+    document.getElementById("midtermBtn")
+    .classList.toggle("active", exam === "midterm");
 
-const btn=document.createElement("button");
-
-btn.textContent=examTypes[type];
-
-if(index===0)btn.classList.add("active");
-
-btn.onclick=()=>{
-
-tabBox.querySelectorAll("button").forEach(b=>{
-b.classList.remove("active");
-});
-
-btn.classList.add("active");
-
-showYears(board,type);
-};
-
-tabBox.appendChild(btn);
-
-});
-
-showYears(board,"annual1");
+    renderTable();
 }
 
-function showYears(board,type){
+// ================= YEAR SELECT =================
 
-const content=document.getElementById(board+"Content");
+function loadYears() {
+    const select = document.getElementById("yearSelect");
 
-content.innerHTML=`
-<h3>${examTypes[type]}</h3>
-<div class="years" id="yearButtons"></div>
-<input class="search"
-placeholder="🔎 Search Subject..."
-oninput="searchSubjects(this.value)">
-<div id="paperTable"></div>
-`;
+    select.innerHTML = "";
 
-const yearBox=document.getElementById("yearButtons");
-
-years[board][type].forEach((year,index)=>{
-
-const btn=document.createElement("button");
-
-btn.textContent=year;
-
-if(index===0)btn.classList.add("active");
-
-btn.onclick=()=>{
-
-yearBox.querySelectorAll("button").forEach(b=>{
-b.classList.remove("active");
-});
-
-btn.classList.add("active");
-
-showSubjects(board,type,year);
-};
-
-yearBox.appendChild(btn);
-
-});
-
-showSubjects(board,type,years[board][type][0]);
+    YEARS.forEach(year => {
+        const option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        select.appendChild(option);
+    });
 }
 
-function showSubjects(board,type,year){
+// ================= RENDER TABLE =================
 
-const list=subjects[board];
+function renderTable() {
+    const year = document.getElementById("yearSelect").value;
+    const search = document.getElementById("searchInput")
+    .value.toLowerCase();
 
-let html=`
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Subject</th>
-<th>${year} - ${examTypes[type]}</th>
-</tr>
-</thead>
-<tbody>
-`;
+    const subjects = SUBJECTS[currentBoard];
 
-list.forEach(subject=>{
+    const table = document.getElementById("paperTable");
+    table.innerHTML = "";
 
-const url=PAPER_LINKS[board][type][year+"|"+subject] || "";
+    document.getElementById("tableTitle").textContent =
+        (currentBoard === "state"
+        ? "Karnataka State Board"
+        : "CBSE") + " - " + year + " Question Papers";
 
-html+=`
-<tr>
-<td>${subject}</td>
-<td>
-${
-url
-? `<button class="btn" onclick="viewPDF('${encodeURIComponent(url)}')">View PDF</button>
-<a class="btn download" href="${url}" download="${year}-${subject}.pdf">Download PDF</a>`
-: `<button class="btn" onclick="missingPDF('${subject}')">View PDF</button>
-<button class="btn download" onclick="missingPDF('${subject}')">Download PDF</button>`
+    document.getElementById("examHeading").textContent =
+        currentExam === "main"
+        ? "Main Exam"
+        : "Midterm Exam";
+
+    subjects
+    .filter(subject => subject.toLowerCase().includes(search))
+    .forEach(subject => {
+
+        const key = year + "|" + subject;
+
+        const url = PAPER_LINKS[currentBoard][currentExam][key];
+
+        const row = document.createElement("tr");
+
+        const subjectCell = document.createElement("td");
+        subjectCell.className = "subject";
+        subjectCell.textContent = subject;
+
+        const actionCell = document.createElement("td");
+        const buttons = document.createElement("div");
+        buttons.className = "action-buttons";
+
+        const viewButton = document.createElement("button");
+        viewButton.className = "view-btn";
+        viewButton.textContent = "View PDF";
+        viewButton.onclick = () => viewPDF(url, subject, year);
+
+        const downloadButton = document.createElement("button");
+        downloadButton.className = "download-btn";
+        downloadButton.textContent = "Download PDF";
+        downloadButton.onclick = () => downloadPDF(url, subject, year);
+
+        buttons.appendChild(viewButton);
+        buttons.appendChild(downloadButton);
+
+        actionCell.appendChild(buttons);
+
+        row.appendChild(subjectCell);
+        row.appendChild(actionCell);
+
+        table.appendChild(row);
+    });
+
+    if (table.children.length === 0) {
+        table.innerHTML =
+        '<tr><td colspan="2" class="message">No subjects found</td></tr>';
+    }
 }
-</td>
-</tr>
-`;
 
-});
+// ================= VIEW PDF =================
 
-html+=`
-</tbody>
-</table>
-</div>
-`;
+function viewPDF(url, subject, year) {
+    if (!url) {
+        alert("PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ. ನಂತರ link ಸೇರಿಸಬಹುದು.");
+        return;
+    }
 
-document.getElementById("paperTable").innerHTML=html;
+    document.getElementById("pdfSection").style.display = "block";
+    document.getElementById("pdfTitle").textContent =
+        subject + " - " + year + " PDF";
+
+    document.getElementById("pdfFrame").src = url;
+
+    document.getElementById("pdfSection")
+    .scrollIntoView({ behavior: "smooth" });
 }
 
-function viewPDF(encodedURL){
+// ================= DOWNLOAD PDF =================
 
-const url=decodeURIComponent(encodedURL);
+function downloadPDF(url, subject, year) {
+    if (!url) {
+        alert("PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ. ನಂತರ link ಸೇರಿಸಬಹುದು.");
+        return;
+    }
 
-document.getElementById("viewerBox").style.display="block";
-document.getElementById("pdfViewer").src=url;
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = subject + "_" + year + ".pdf";
+    link.target = "_blank";
 
-document.getElementById("viewerBox").scrollIntoView({
-behavior:"smooth"
-});
-
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
 }
 
-function missingPDF(subject){
+// ================= CLOSE PDF =================
 
-alert(subject+" PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ. ನಿಜವಾದ PDF ಲಿಂಕ್ ಸೇರಿಸಿದ ನಂತರ ಮಾತ್ರ ತೆರೆಯುತ್ತದೆ.");
-
+function closePDF() {
+    document.getElementById("pdfFrame").src = "";
+    document.getElementById("pdfSection").style.display = "none";
 }
 
-function searchSubjects(value){
+// ================= START =================
 
-document.querySelectorAll("#paperTable tbody tr").forEach(row=>{
-
-row.style.display=
-row.cells[0].textContent.toLowerCase().includes(value.toLowerCase())
-?"":"none";
-
-});
-
-}
+loadYears();
+renderTable();
 
 </script>
+
 </body>
 </html>
