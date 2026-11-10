@@ -4,349 +4,315 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SSLC Paper Hub</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #eef2ff;
-  color: #172554;
-}
-
-header {
-  background: linear-gradient(135deg, #111827, #3730a3);
-  color: white;
-  text-align: center;
-  padding: 35px 15px;
-}
-
-header h1 {
-  font-size: 30px;
-  margin: 0;
-}
-
-header p {
-  color: #dbeafe;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-  padding: 25px 10px;
-}
-
-.tabs button {
-  border: none;
-  padding: 14px 28px;
-  border-radius: 10px;
-  background: white;
-  color: #1e3a8a;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 3px 10px #00000015;
-}
-
-.tabs button.active {
-  background: #2563eb;
-  color: white;
-}
-
-.paper-box {
-  display: none;
-  width: 95%;
-  max-width: 1100px;
-  margin: 10px auto 35px;
-  padding: 22px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px #00000012;
-  overflow-x: auto;
-}
-
-.paper-box.show {
-  display: block;
-}
-
-h2 {
-  text-align: center;
-  color: #3730a3;
-}
-
-table {
-  width: 100%;
-  min-width: 680px;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  border: 1px solid #dbeafe;
-  padding: 14px 10px;
-  text-align: center;
-}
-
-th {
-  background: #1e3a8a;
-  color: white;
-}
-
-tr:nth-child(even) {
-  background: #f8faff;
-}
-
-.pdf-btn {
-  display: inline-block;
-  padding: 9px 11px;
-  margin: 4px;
-  border-radius: 7px;
-  text-decoration: none;
-  color: white;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.view-btn {
-  background: #2563eb;
-}
-
-.download-btn {
-  background: #16a34a;
-}
-
-footer {
-  background: #111827;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 30px;
-}
-
-@media(max-width:600px) {
-  header h1 {
-    font-size: 24px;
-  }
-
-  .paper-box {
-    padding: 12px;
-  }
-
-  .tabs button {
-    padding: 12px 18px;
-  }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f1f5ff;color:#172554}
+header{background:linear-gradient(135deg,#102044,#4f46e5,#7c3aed);color:white;text-align:center;padding:32px 15px}
+header h1{font-size:32px;margin:10px}
+header p{color:#dbeafe;margin:5px}
+.container{max-width:950px;margin:auto;padding:20px}
+h2{text-align:center;margin:20px 0}
+.boards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.board{padding:22px 10px;border:0;border-radius:14px;background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;font-size:17px;font-weight:bold;cursor:pointer}
+.board:nth-child(2){background:linear-gradient(135deg,#7c3aed,#9333ea)}
+.section{display:none;background:white;padding:18px;margin-top:20px;border-radius:15px}
+.section.active{display:block}
+.tabs,.years{display:flex;flex-wrap:wrap;gap:8px;margin:15px 0}
+.tabs button,.years button{padding:10px 13px;border:1px solid #ddd;border-radius:9px;background:#eff6ff;cursor:pointer;font-weight:bold}
+.tabs button.active,.years button.active{background:#2563eb;color:white}
+.search{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:10px;margin:10px 0;font-size:16px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{padding:12px;border-bottom:1px solid #e2e8f0;text-align:left}
+th{background:#eff6ff}
+.btn{display:inline-block;padding:9px 12px;margin:3px;border-radius:7px;text-decoration:none;color:white;background:#2563eb;font-size:13px;font-weight:bold;border:0;cursor:pointer}
+.download{background:#15803d}
+.note{margin-top:15px;background:#fff7ed;color:#9a3412;padding:12px;border-radius:10px;font-size:13px}
+footer{text-align:center;padding:25px;color:#64748b}
+#viewerBox{display:none;margin-top:25px;background:white;padding:12px;border-radius:12px}
+#pdfViewer{width:100%;height:75vh;border:1px solid #ddd}
+@media(max-width:550px){.boards{grid-template-columns:1fr}}
 </style>
 </head>
 
 <body>
 
 <header>
-  <h1>📚 SSLC Paper Hub</h1>
-  <p>Previous Year & Model Question Papers</p>
-  <p>Study Smart • Practice Better • Score Higher</p>
+<h1>📚 SSLC Paper Hub</h1>
+<p>Annual Exam • Previous Year • Model Papers</p>
+<p>Study Smart • Practice Better</p>
 </header>
 
-<div class="tabs">
-  <button class="active" onclick="showBoard('state', this)">
-    STATE BOARD
-  </button>
+<div class="container">
 
-  <button onclick="showBoard('cbse', this)">
-    CBSE
-  </button>
+<h2>Choose Your Board</h2>
+
+<div class="boards">
+<button class="board" onclick="openBoard('state')">
+🏫 Karnataka State Board
+</button>
+
+<button class="board" onclick="openBoard('cbse')">
+🎓 CBSE Class 10
+</button>
 </div>
 
-<!-- STATE BOARD -->
-
-<div id="state" class="paper-box show">
-
-<h2>📘 Karnataka STATE BOARD</h2>
-
-<table>
-<tr>
-  <th>Subject</th>
-  <th>Previous Year Question Papers</th>
-  <th>Model Question Papers</th>
-</tr>
-
-<tr>
-<td>Kannada</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>English</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Hindi</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Mathematics</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Science</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Social Science</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-</table>
+<div id="state" class="section">
+<h2>Karnataka State Board</h2>
+<div class="tabs" id="stateTabs"></div>
+<div id="stateContent"></div>
 </div>
 
-<!-- CBSE -->
+<div id="cbse" class="section">
+<h2>CBSE Class 10</h2>
+<div class="tabs" id="cbseTabs"></div>
+<div id="cbseContent"></div>
+</div>
 
-<div id="cbse" class="paper-box">
+<div id="viewerBox">
+<h2>📄 Question Paper Preview</h2>
+<iframe id="pdfViewer" title="Question Paper"></iframe>
+</div>
 
-<h2>📗 CBSE – English Medium</h2>
+<div class="note">
+PDF links will work after adding the actual direct PDF URLs.
+View Paper opens the PDF preview here. Download PDF downloads the linked PDF where supported.
+</div>
 
-<table>
-<tr>
-  <th>Subject</th>
-  <th>Previous Year Question Papers</th>
-  <th>Model Question Papers</th>
-</tr>
-
-<tr>
-<td>English</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Hindi</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Mathematics</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Science</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-
-<tr>
-<td>Social Science</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-<td>
-  <a class="pdf-btn view-btn" href="" target="_blank">View PDF</a>
-  <a class="pdf-btn download-btn" href="" download>Download PDF</a>
-</td>
-</tr>
-</table>
 </div>
 
 <footer>
-  <p>© 2026 SSLC Paper Hub</p>
-  <p>Made for Students ❤️</p>
+© 2026 SSLC Paper Hub ❤️
 </footer>
 
 <script>
-function showBoard(board, button) {
 
-  document.querySelectorAll(".paper-box").forEach(box => {
-    box.classList.remove("show");
-  });
+// SUBJECTS
 
-  document.getElementById(board).classList.add("show");
+const subjects = {
+state:[
+"Kannada",
+"English",
+"Hindi",
+"Mathematics",
+"Science",
+"Social Science"
+],
 
-  document.querySelectorAll(".tabs button").forEach(btn => {
-    btn.classList.remove("active");
-  });
+cbse:[
+"English",
+"Hindi",
+"Kannada",
+"Mathematics",
+"Science",
+"Social Science"
+]
+};
 
-  button.classList.add("active");
+// ADD YOUR DIRECT PDF LINKS HERE
+// Format: "Year|Subject": "Direct PDF URL"
+
+const PAPER_LINKS = {
+state:{
+annual1:{},
+annual2:{},
+previous:{},
+model:{}
+},
+
+cbse:{
+annual1:{},
+annual2:{},
+previous:{},
+model:{}
 }
-</script>
+};
 
+const examTypes = {
+annual1:"Annual Exam 1",
+annual2:"Annual Exam 2",
+previous:"Previous Year Papers",
+model:"Model Question Papers"
+};
+
+const years = {
+state:{
+annual1:["2026","2025","2024"],
+annual2:["2026","2025","2024"],
+previous:["2026","2025","2024","2023","2022","2021"],
+model:["2026","2025","2024","2023"]
+},
+
+cbse:{
+annual1:["2026","2025","2024"],
+annual2:["2026","2025","2024"],
+previous:["2026","2025","2024","2023","2022","2021"],
+model:["2025-26","2024-25","2023-24","2022-23"]
+}
+};
+
+function openBoard(board){
+document.querySelectorAll(".section").forEach(s=>{
+s.classList.remove("active");
+});
+
+document.getElementById(board).classList.add("active");
+
+showExamTabs(board);
+}
+
+function showExamTabs(board){
+
+const tabBox=document.getElementById(board+"Tabs");
+
+tabBox.innerHTML="";
+
+Object.keys(examTypes).forEach((type,index)=>{
+
+const btn=document.createElement("button");
+
+btn.textContent=examTypes[type];
+
+if(index===0)btn.classList.add("active");
+
+btn.onclick=()=>{
+
+tabBox.querySelectorAll("button").forEach(b=>{
+b.classList.remove("active");
+});
+
+btn.classList.add("active");
+
+showYears(board,type);
+};
+
+tabBox.appendChild(btn);
+
+});
+
+showYears(board,"annual1");
+}
+
+function showYears(board,type){
+
+const content=document.getElementById(board+"Content");
+
+content.innerHTML=`
+<h3>${examTypes[type]}</h3>
+<div class="years" id="yearButtons"></div>
+<input class="search"
+placeholder="🔎 Search Subject..."
+oninput="searchSubjects(this.value)">
+<div id="paperTable"></div>
+`;
+
+const yearBox=document.getElementById("yearButtons");
+
+years[board][type].forEach((year,index)=>{
+
+const btn=document.createElement("button");
+
+btn.textContent=year;
+
+if(index===0)btn.classList.add("active");
+
+btn.onclick=()=>{
+
+yearBox.querySelectorAll("button").forEach(b=>{
+b.classList.remove("active");
+});
+
+btn.classList.add("active");
+
+showSubjects(board,type,year);
+};
+
+yearBox.appendChild(btn);
+
+});
+
+showSubjects(board,type,years[board][type][0]);
+}
+
+function showSubjects(board,type,year){
+
+const list=subjects[board];
+
+let html=`
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>${year} - ${examTypes[type]}</th>
+</tr>
+</thead>
+<tbody>
+`;
+
+list.forEach(subject=>{
+
+const url=PAPER_LINKS[board][type][year+"|"+subject] || "";
+
+html+=`
+<tr>
+<td>${subject}</td>
+<td>
+${
+url
+? `<button class="btn" onclick="viewPDF('${encodeURIComponent(url)}')">View PDF</button>
+<a class="btn download" href="${url}" download="${year}-${subject}.pdf">Download PDF</a>`
+: `<button class="btn" onclick="missingPDF('${subject}')">View PDF</button>
+<button class="btn download" onclick="missingPDF('${subject}')">Download PDF</button>`
+}
+</td>
+</tr>
+`;
+
+});
+
+html+=`
+</tbody>
+</table>
+</div>
+`;
+
+document.getElementById("paperTable").innerHTML=html;
+}
+
+function viewPDF(encodedURL){
+
+const url=decodeURIComponent(encodedURL);
+
+document.getElementById("viewerBox").style.display="block";
+document.getElementById("pdfViewer").src=url;
+
+document.getElementById("viewerBox").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function missingPDF(subject){
+
+alert(subject+" PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ. ನಿಜವಾದ PDF ಲಿಂಕ್ ಸೇರಿಸಿದ ನಂತರ ಮಾತ್ರ ತೆರೆಯುತ್ತದೆ.");
+
+}
+
+function searchSubjects(value){
+
+document.querySelectorAll("#paperTable tbody tr").forEach(row=>{
+
+row.style.display=
+row.cells[0].textContent.toLowerCase().includes(value.toLowerCase())
+?"":"none";
+
+});
+
+}
+
+</script>
 </body>
 </html>
