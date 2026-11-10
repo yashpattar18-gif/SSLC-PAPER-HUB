@@ -5,172 +5,210 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SSLC Paper Hub</title>
+
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial;background:#eef2ff;color:#172554}
-header{background:linear-gradient(135deg,#111827,#3730a3);color:white;text-align:center;padding:30px 12px}
-header h1{margin:0;font-size:29px}
-.tabs{display:flex;justify-content:center;gap:12px;padding:22px}
-.tabs button{padding:13px 22px;border:0;border-radius:9px;background:white;color:#1e3a8a;font-weight:bold}
-.tabs button.active{background:#2563eb;color:white}
-.paper-box{display:none;background:white;width:95%;max-width:1100px;margin:10px auto 30px;padding:18px;border-radius:13px;overflow-x:auto;box-shadow:0 4px 15px #0002}
-.paper-box.show{display:block}
-h2{text-align:center;color:#3730a3}
-table{width:100%;min-width:650px;border-collapse:collapse}
-th,td{border:1px solid #dbeafe;padding:12px;text-align:center}
-th{background:#1e3a8a;color:white}
-tr:nth-child(even){background:#f5f7ff}
-.pdf-btn{display:inline-block;padding:9px 11px;margin:3px;border-radius:6px;text-decoration:none;color:white;font-size:13px;font-weight:bold}
-.view{background:#2563eb}
-.download{background:#16a34a}
-footer{text-align:center;background:#111827;color:white;padding:20px}
+body{
+ margin:0;font-family:Arial,sans-serif;
+ background:#f1f5ff;color:#172554
+}
+header{
+ background:linear-gradient(135deg,#172554,#2563eb);
+ color:white;text-align:center;padding:30px 15px
+}
+header h1{margin:0 0 10px;font-size:28px}
+header p{margin:0;color:#dbeafe}
+.container{max-width:950px;margin:auto;padding:20px 14px}
+.search{
+ width:100%;padding:15px;border:2px solid #dbeafe;
+ border-radius:12px;font-size:16px;margin-bottom:15px
+}
+.filters{display:flex;gap:10px;margin-bottom:20px}
+select{
+ flex:1;min-width:0;padding:12px 6px;
+ border-radius:9px;border:1px solid #cbd5e1;background:white
+}
+.grid{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:15px
+}
+.card{
+ background:white;padding:18px;border-radius:14px;
+ border:1px solid #e5e7eb;box-shadow:0 3px 12px #0000000b
+}
+.card h3{color:#1d4ed8;margin-top:0}
+.tag{
+ display:inline-block;background:#dbeafe;color:#1e40af;
+ padding:5px 8px;border-radius:6px;font-size:12px
+}
+.view{
+ display:inline-block;background:#2563eb;color:white;
+ padding:10px 14px;border-radius:8px;text-decoration:none;
+ margin-top:12px
+}
+.view:hover{background:#1d4ed8}
+.empty{text-align:center;padding:25px;display:none}
+footer{text-align:center;padding:24px;color:#64748b}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>📚 SSLC Paper Hub</h1>
-<p>Previous Year & Model Question Papers</p>
-<p>Study Smart • Practice Better</p>
+<h1>📚 SSLC PAPER HUB</h1>
+<p>Free Karnataka SSLC Exam Preparation Platform</p>
 </header>
 
-<div class="tabs">
-<button class="active" onclick="showBoard('state',this)">STATE BOARD</button>
-<button onclick="showBoard('cbse',this)">CBSE</button>
+<main class="container">
+
+<h2>🔎 Find Question Papers</h2>
+
+<input id="search" class="search" type="search"
+placeholder="Search subject, year or exam...">
+
+<div class="filters">
+<select id="subject">
+<option value="">All Subjects</option>
+<option>Kannada</option>
+<option>English</option>
+<option>Hindi</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>Social Science</option>
+</select>
+
+<select id="year">
+<option value="">All Years</option>
+<option>2026</option>
+<option>2025</option>
+<option>2024</option>
+<option>2023</option>
+<option>2022</option>
+<option>2021</option>
+<option>2020</option>
+</select>
 </div>
 
-<div id="state" class="paper-box show">
-<h2>📘 Karnataka STATE BOARD - 2026</h2>
-<table>
-<tr>
-<th>Subject</th>
-<th>Previous Year Question Papers</th>
-<th>Model Question Papers</th>
-</tr>
+<div class="grid" id="papers"></div>
 
-<tr>
-<td>Kannada</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View PDF</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-
-<tr>
-<td>English</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View PDF</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-
-<tr>
-<td>Hindi</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-
-<tr>
-<td>Mathematics</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-
-<tr>
-<td>Science</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-
-<tr>
-<td>Social Science</td>
-<td>
-<a class="pdf-btn view" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://school.careers360.com/boards/kseeb/karnataka-sslc-question-paper-2026" target="_blank">Download</a>
-</td>
-<td>
-<a class="pdf-btn view" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">View Papers</a>
-<a class="pdf-btn download" href="https://www.jagranjosh.com/articles/karnataka-sslc-model-question-papers-2026-download-kseab-subject-wise-sample-paper-with-answer-key-1800006559-1" target="_blank">Download</a>
-</td>
-</tr>
-</table>
+<div class="empty" id="empty">
+<h3>😕 No papers found</h3>
+<p>Try another subject, year or search term.</p>
 </div>
 
-<div id="cbse" class="paper-box">
-<h2>📗 CBSE - English Medium</h2>
-<table>
-<tr>
-<th>Subject</th>
-<th>Previous Year Question Papers</th>
-<th>Model Question Papers</th>
-</tr>
-<tr>
-<td>English</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Hindi</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Mathematics</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Science</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-<tr>
-<td>Social Science</td>
-<td><a class="pdf-btn view" href="https://www.cbse.gov.in/" target="_blank">View Papers</a></td>
-<td><a class="pdf-btn download" href="https://www.cbse.gov.in/" target="_blank">View Model Papers</a></td>
-</tr>
-</table>
-</div>
+</main>
 
 <footer>
-<p>© 2026 SSLC Paper Hub</p>
-<p>Made for Students ❤️</p>
+<p>SSLC PAPER HUB © 2026</p>
+<p>Free study resources for students ❤️</p>
 </footer>
 
 <script>
-function showBoard(board,button){
-document.querySelectorAll(".paper-box").forEach(box=>box.classList.remove("show"));
-document.getElementById(board).classList.add("show");
-document.querySelectorAll(".tabs button").forEach(btn=>btn.classList.remove("active"));
-button.classList.add("active");
-}
-</script>
 
+// Add verified PDF links inside url.
+// Example: url: "https://example.com/paper.pdf"
+
+const questionPapers = [
+{
+subject:"Mathematics",
+year:"2026",
+exam:"Model Question Paper",
+url:""
+},
+{
+subject:"Science",
+year:"2026",
+exam:"Model Question Paper",
+url:""
+},
+{
+subject:"Kannada",
+year:"2025",
+exam:"Annual Exam",
+url:""
+},
+{
+subject:"English",
+year:"2025",
+exam:"Model Question Paper",
+url:""
+},
+{
+subject:"Social Science",
+year:"2024",
+exam:"Annual Exam",
+url:""
+},
+{
+subject:"Hindi",
+year:"2024",
+exam:"Practice Paper",
+url:""
+}
+];
+
+const search=document.getElementById("search");
+const subject=document.getElementById("subject");
+const year=document.getElementById("year");
+const papers=document.getElementById("papers");
+const empty=document.getElementById("empty");
+
+function renderPapers(){
+
+const query=search.value.toLowerCase().trim();
+
+const filtered=questionPapers.filter(paper=>{
+const text=(paper.subject+" "+paper.year+" "+paper.exam).toLowerCase();
+
+return text.includes(query)&&
+(!subject.value||paper.subject===subject.value)&&
+(!year.value||paper.year===year.value);
+});
+
+papers.innerHTML="";
+
+filtered.forEach(paper=>{
+const card=document.createElement("article");
+card.className="card";
+
+const title=document.createElement("h3");
+title.textContent="📄 "+paper.subject;
+
+const details=document.createElement("p");
+details.textContent=paper.year+" • "+paper.exam;
+
+const tag=document.createElement("span");
+tag.className="tag";
+tag.textContent=paper.exam;
+
+card.append(title,details,tag);
+
+if(paper.url){
+const link=document.createElement("a");
+link.className="view";
+link.href=paper.url;
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.textContent="View PDF ↗";
+card.appendChild(link);
+}else{
+const note=document.createElement("p");
+note.textContent="PDF link coming soon.";
+card.appendChild(note);
+}
+
+papers.appendChild(card);
+});
+
+empty.style.display=filtered.length?"none":"block";
+}
+
+search.addEventListener("input",renderPapers);
+subject.addEventListener("change",renderPapers);
+year.addEventListener("change",renderPapers);
+
+renderPapers();
+
+</script>
 </body>
 </html>
