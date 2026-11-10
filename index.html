@@ -4,155 +4,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SSLC Paper Hub</title>
 
 <style>
+*{box-sizing:border-box}
 body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#eef3ff;
-color:#172554;
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f1f5f9;
+ color:#1e293b;
 }
-
 header{
-background:#2563eb;
-color:white;
-text-align:center;
-padding:25px 10px;
+ background:linear-gradient(135deg,#1d4ed8,#4338ca);
+ color:white;
+ text-align:center;
+ padding:25px 10px;
 }
-
-header h1{margin:0;font-size:28px;}
-header p{margin:10px 0 0;}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:15px;
-}
-
+header h1{margin:0;font-size:28px}
+header p{margin:8px 0 0}
+.container{max-width:950px;margin:20px auto;padding:12px}
 .card{
-background:white;
-padding:18px;
-border-radius:16px;
-margin-bottom:18px;
-box-shadow:0 3px 12px #00000010;
+ background:white;
+ padding:20px;
+ border-radius:12px;
+ margin-bottom:18px;
+ box-shadow:0 3px 12px #00000012;
 }
-
-h2{
-text-align:center;
-color:#1e40af;
-}
-
-.board-buttons,.exam-buttons,.year-buttons{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin:15px 0;
-}
-
+h2{text-align:center;color:#1e40af;margin-top:0}
 button{
-border:none;
-border-radius:8px;
-padding:12px 16px;
-font-size:15px;
-font-weight:bold;
-cursor:pointer;
+ border:0;
+ border-radius:8px;
+ padding:12px 16px;
+ font-size:15px;
+ font-weight:bold;
+ cursor:pointer;
 }
-
-.board{
-background:#dbeafe;
-color:#1e40af;
+.board-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:14px;
 }
-
-.exam{
-background:#e0e7ff;
-color:#3730a3;
+.board-btn{
+ background:#2563eb;
+ color:white;
+ padding:22px 10px;
+ font-size:17px;
 }
-
-.year{
-background:#f1f5f9;
-color:#334155;
+.option-list,.year-list{
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:10px;
+ margin:18px 0;
 }
-
-.active{
-background:#2563eb!important;
-color:white!important;
-}
-
+.option-btn{background:#e0e7ff;color:#3730a3}
+.year-btn{background:#f1f5f9;color:#334155}
+.active{background:#2563eb!important;color:white!important}
+.back-btn{background:#64748b;color:white;margin-bottom:15px}
 .search{
-width:100%;
-padding:14px;
-border:1px solid #cbd5e1;
-border-radius:10px;
-font-size:16px;
-margin:10px 0;
-box-sizing:border-box;
+ width:100%;
+ padding:13px;
+ border:1px solid #cbd5e1;
+ border-radius:8px;
+ font-size:16px;
+ margin:12px 0;
 }
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:600px}
 th{
-background:#eff6ff;
-padding:17px 10px;
-text-align:left;
+ background:#eff6ff;
+ color:#1e40af;
+ padding:15px 10px;
+ text-align:left;
 }
-
-td{
-padding:18px 10px;
-border-bottom:1px solid #e2e8f0;
-}
-
-.subject{
-font-size:17px;
-}
-
-.view{
-background:#2563eb;
-color:white;
-margin-bottom:8px;
-}
-
-.download{
-background:#15803d;
-color:white;
-}
-
-.table-wrap{
-overflow-x:auto;
-}
-
-#pdfBox{
-display:none;
-}
-
-iframe{
-width:100%;
-height:75vh;
-border:1px solid #ddd;
-}
-
-.close{
-background:#dc2626;
-color:white;
-margin-bottom:10px;
-}
-
-footer{
-text-align:center;
-padding:20px;
-color:#64748b;
-}
-
-@media(max-width:550px){
-.container{padding:10px;}
-.card{padding:13px;}
-td{padding:15px 8px;}
-button{padding:10px 12px;}
+td{padding:15px 10px;border-bottom:1px solid #e2e8f0}
+.view-btn{background:#2563eb;color:white;margin:3px}
+.download-btn{background:#15803d;color:white;margin:3px}
+#pdfViewer{display:none}
+#pdfFrame{width:100%;height:70vh;border:1px solid #cbd5e1}
+.close-btn{background:#dc2626;color:white}
+.hidden{display:none}
+footer{text-align:center;padding:20px;color:#64748b}
+@media(max-width:600px){
+ .container{padding:9px}
+ .card{padding:14px}
+ .board-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -160,268 +96,285 @@ button{padding:10px 12px;}
 <body>
 
 <header>
-<h1>📚 SSLC Paper Hub</h1>
-<p>Previous Year • Main Exam • Midterm Exam</p>
+ <h1>📚 SSLC Paper Hub</h1>
+ <p>Previous Year Question Papers</p>
 </header>
 
 <div class="container">
 
-<!-- BOARD SELECT -->
-<div class="card">
-<h2>Select Board</h2>
+<!-- BOARD SELECTION -->
+<section id="boardPage" class="card">
+ <h2>Select Board</h2>
+ <div class="board-grid">
+  <button class="board-btn" onclick="openBoard('state')">
+   Karnataka State Board
+  </button>
+  <button class="board-btn" onclick="openBoard('cbse')">
+   CBSE
+  </button>
+ </div>
+</section>
 
-<div class="board-buttons">
-<button id="stateBtn" class="board active"
-onclick="boardSelect('state')">
-Karnataka State Board
-</button>
+<!-- PREVIOUS YEAR SELECTION -->
+<section id="previousPage" class="card hidden">
+ <button class="back-btn" onclick="goBack('board')">← Back</button>
+ <h2 id="boardTitle"></h2>
+ <h2>Previous Year Question Papers</h2>
+ <p style="text-align:center">Select Year</p>
+ <div class="year-list" id="yearList"></div>
+</section>
 
-<button id="cbseBtn" class="board"
-onclick="boardSelect('cbse')">
-CBSE
-</button>
-</div>
-</div>
-
-<!-- EXAM SELECT -->
-<div class="card">
-<h2>Select Exam</h2>
-
-<div class="exam-buttons">
-<button id="mainBtn" class="exam active"
-onclick="examSelect('main')">
-Main Exam
-</button>
-
-<button id="midBtn" class="exam"
-onclick="examSelect('mid')">
-Midterm Exam
-</button>
-</div>
-
-<h2>Previous Years</h2>
-
-<div class="year-buttons" id="yearButtons"></div>
-
-<input class="search" id="search"
-placeholder="🔎 Search Subject..."
-oninput="showTable()">
-</div>
+<!-- EXAM SELECTION -->
+<section id="examPage" class="card hidden">
+ <button class="back-btn" onclick="goBack('year')">← Back</button>
+ <h2 id="examYearTitle"></h2>
+ <h2>Select Exam</h2>
+ <div class="option-list">
+  <button class="option-btn" onclick="openSubjects('midterm')">
+   Midterm Exam
+  </button>
+  <button class="option-btn" onclick="openSubjects('main')">
+   Main Exam
+  </button>
+ </div>
+</section>
 
 <!-- SUBJECT TABLE -->
-<div class="card">
-<h2 id="title">Question Papers</h2>
+<section id="subjectPage" class="hidden">
+ <div class="card">
+  <button class="back-btn" onclick="goBack('exam')">← Back</button>
+  <h2 id="subjectTitle"></h2>
+  <input class="search" id="searchInput"
+   placeholder="🔎 Search Subject..."
+   oninput="renderSubjects()">
+ </div>
 
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th>Subject</th>
-<th>Question Papers</th>
-</tr>
-</thead>
-<tbody id="subjectsTable"></tbody>
-</table>
-</div>
-</div>
+ <div class="card">
+  <div class="table-wrap">
+   <table>
+    <thead>
+     <tr>
+      <th>Subject Code</th>
+      <th>Subject Name</th>
+      <th>Question Paper</th>
+     </tr>
+    </thead>
+    <tbody id="subjectTable"></tbody>
+   </table>
+  </div>
+ </div>
+</section>
 
 <!-- PDF VIEWER -->
-<div class="card" id="pdfBox">
-<button class="close" onclick="closePDF()">✖ Close PDF</button>
-<h2 id="pdfTitle"></h2>
-<iframe id="pdfFrame"></iframe>
-</div>
+<section class="card" id="pdfViewer">
+ <button class="close-btn" onclick="closePDF()">✖ Close PDF</button>
+ <h2 id="pdfTitle"></h2>
+ <iframe id="pdfFrame"></iframe>
+</section>
 
 </div>
 
-<footer>
-© 2026 SSLC Paper Hub
-</footer>
+<footer>© 2026 SSLC Paper Hub</footer>
 
 <script>
 
-// SUBJECTS
+// SUBJECTS AND CODES
 
-const subjects={
-state:[
-"Kannada","English","Hindi",
-"Mathematics","Science","Social Science"
-],
-cbse:[
-"English","Hindi","Kannada",
-"Mathematics","Science","Social Science"
-]
+const SUBJECTS={
+ state:[
+  {code:"01",name:"Kannada"},
+  {code:"03",name:"English"},
+  {code:"06",name:"Hindi"},
+  {code:"81",name:"Mathematics"},
+  {code:"83",name:"Science"},
+  {code:"85",name:"Social Science"}
+ ],
+ cbse:[
+  {code:"184",name:"English"},
+  {code:"002",name:"Hindi"},
+  {code:"015",name:"Kannada"},
+  {code:"041",name:"Mathematics"},
+  {code:"086",name:"Science"},
+  {code:"087",name:"Social Science"}
+ ]
 };
 
 // YEARS
 
-const years=[2026,2025,2024,2023,2022,2021];
+const YEARS=[2026,2025,2024,2023,2022,2021];
 
 // PDF LINKS
+// Add actual PDF URLs using the format shown below.
+// "2026|main|01": "DIRECT_PDF_URL"
 
-const papers={
-state:{main:{},mid:{}},
-cbse:{main:{},mid:{}}
+const PAPER_LINKS={
+ state:{},
+ cbse:{}
 };
 
-// CURRENT SETTINGS
+// CURRENT DATA
 
 let board="state";
+let year=2026;
 let exam="main";
-let selectedYear=2026;
 
-// YEAR BUTTONS
+// PAGE CONTROL
 
-function createYears(){
-const box=document.getElementById("yearButtons");
-box.innerHTML="";
+function showPage(page){
+ ["boardPage","previousPage","examPage","subjectPage"]
+ .forEach(id=>document.getElementById(id).classList.add("hidden"));
 
-years.forEach(y=>{
-const b=document.createElement("button");
-b.textContent=y;
-b.className="year"+(y===selectedYear?" active":"");
-
-b.onclick=()=>{
-selectedYear=y;
-createYears();
-showTable();
-};
-
-box.appendChild(b);
-});
+ document.getElementById(page).classList.remove("hidden");
+ closePDF();
+ window.scrollTo(0,0);
 }
 
 // BOARD
 
-function boardSelect(b){
-board=b;
+function openBoard(selectedBoard){
+ board=selectedBoard;
 
-document.getElementById("stateBtn")
-.classList.toggle("active",b==="state");
+ document.getElementById("boardTitle").textContent=
+ board==="state"?"Karnataka State Board":"CBSE";
 
-document.getElementById("cbseBtn")
-.classList.toggle("active",b==="cbse");
+ createYears();
+ showPage("previousPage");
+}
 
-showTable();
+// YEAR BUTTONS
+
+function createYears(){
+ const list=document.getElementById("yearList");
+ list.innerHTML="";
+
+ YEARS.forEach(y=>{
+  const btn=document.createElement("button");
+  btn.className="year-btn";
+  btn.textContent=y;
+  btn.onclick=()=>{
+   year=y;
+   document.getElementById("examYearTitle").textContent=
+    year+" - Select Exam";
+   showPage("examPage");
+  };
+  list.appendChild(btn);
+ });
 }
 
 // EXAM
 
-function examSelect(e){
-exam=e;
+function openSubjects(selectedExam){
+ exam=selectedExam;
 
-document.getElementById("mainBtn")
-.classList.toggle("active",e==="main");
+ document.getElementById("subjectTitle").textContent=
+ (board==="state"?"Karnataka State Board":"CBSE")
+ +" | "+year+" | "
+ +(exam==="main"?"Main Exam":"Midterm Exam");
 
-document.getElementById("midBtn")
-.classList.toggle("active",e==="mid");
-
-showTable();
+ document.getElementById("searchInput").value="";
+ renderSubjects();
+ showPage("subjectPage");
 }
 
-// TABLE
+// SUBJECT TABLE
 
-function showTable(){
+function renderSubjects(){
+ const table=document.getElementById("subjectTable");
+ const search=document.getElementById("searchInput").value.toLowerCase();
 
-const tbody=document.getElementById("subjectsTable");
-tbody.innerHTML="";
+ table.innerHTML="";
 
-const search=document.getElementById("search")
-.value.toLowerCase();
+ SUBJECTS[board]
+ .filter(s=>
+  s.name.toLowerCase().includes(search) ||
+  s.code.toLowerCase().includes(search)
+ )
+ .forEach(subject=>{
 
-document.getElementById("title").textContent=
-(board==="state"?"Karnataka State Board":"CBSE")
-+" - "+selectedYear+" - "
-+(exam==="main"?"Main Exam":"Midterm Exam");
+  const key=year+"|"+exam+"|"+subject.code;
+  const url=PAPER_LINKS[board][key];
 
-subjects[board]
-.filter(s=>s.toLowerCase().includes(search))
-.forEach(subject=>{
+  const row=document.createElement("tr");
 
-const key=selectedYear+"|"+subject;
-const url=papers[board][exam][key];
+  const codeCell=document.createElement("td");
+  codeCell.textContent=subject.code;
 
-const tr=document.createElement("tr");
+  const nameCell=document.createElement("td");
+  nameCell.textContent=subject.name;
 
-const td1=document.createElement("td");
-td1.className="subject";
-td1.textContent=subject;
+  const actionCell=document.createElement("td");
 
-const td2=document.createElement("td");
+  const view=document.createElement("button");
+  view.className="view-btn";
+  view.textContent="View PDF";
+  view.onclick=()=>viewPDF(url,subject.name);
 
-const view=document.createElement("button");
-view.className="view";
-view.textContent="View PDF";
-view.onclick=()=>viewPDF(url,subject);
+  const download=document.createElement("button");
+  download.className="download-btn";
+  download.textContent="Download PDF";
+  download.onclick=()=>downloadPDF(url,subject.name);
 
-const download=document.createElement("button");
-download.className="download";
-download.textContent="Download PDF";
-download.onclick=()=>downloadPDF(url,subject);
+  actionCell.appendChild(view);
+  actionCell.appendChild(download);
 
-td2.appendChild(view);
-td2.appendChild(document.createElement("br"));
-td2.appendChild(download);
+  row.appendChild(codeCell);
+  row.appendChild(nameCell);
+  row.appendChild(actionCell);
 
-tr.appendChild(td1);
-tr.appendChild(td2);
+  table.appendChild(row);
+ });
 
-tbody.appendChild(tr);
-});
-
-if(tbody.children.length===0){
-tbody.innerHTML="<tr><td colspan='2'>No Subject Found</td></tr>";
-}
+ if(table.children.length===0){
+  table.innerHTML='<tr><td colspan="3">No Subjects Found</td></tr>';
+ }
 }
 
-// VIEW PDF
+// PDF VIEW
 
-function viewPDF(url,subject){
+function viewPDF(url,name){
+ if(!url){
+  alert("ಈ Subject PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ.");
+  return;
+ }
 
-if(!url){
-alert("ಈ Subject PDF Link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ.");
-return;
+ document.getElementById("pdfViewer").style.display="block";
+ document.getElementById("pdfTitle").textContent=name+" PDF";
+ document.getElementById("pdfFrame").src=url;
+ document.getElementById("pdfViewer").scrollIntoView({behavior:"smooth"});
 }
 
-document.getElementById("pdfBox").style.display="block";
-document.getElementById("pdfTitle").textContent=subject+" PDF";
-document.getElementById("pdfFrame").src=url;
+// PDF DOWNLOAD
 
-document.getElementById("pdfBox")
-.scrollIntoView({behavior:"smooth"});
-}
+function downloadPDF(url,name){
+ if(!url){
+  alert("ಈ Subject PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ.");
+  return;
+ }
 
-// DOWNLOAD PDF
-
-function downloadPDF(url,subject){
-
-if(!url){
-alert("ಈ Subject PDF Link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ.");
-return;
-}
-
-const a=document.createElement("a");
-a.href=url;
-a.download=subject+".pdf";
-a.target="_blank";
-document.body.appendChild(a);
-a.click();
-a.remove();
+ const a=document.createElement("a");
+ a.href=url;
+ a.download=name+"_"+year+".pdf";
+ a.target="_blank";
+ document.body.appendChild(a);
+ a.click();
+ a.remove();
 }
 
 // CLOSE PDF
 
 function closePDF(){
-document.getElementById("pdfFrame").src="";
-document.getElementById("pdfBox").style.display="none";
+ document.getElementById("pdfFrame").src="";
+ document.getElementById("pdfViewer").style.display="none";
 }
 
-// START
+// BACK BUTTONS
 
-createYears();
-showTable();
+function goBack(destination){
+ if(destination==="board") showPage("boardPage");
+ if(destination==="year") showPage("previousPage");
+ if(destination==="exam") showPage("examPage");
+}
 
 </script>
-
 </body>
 </html>
