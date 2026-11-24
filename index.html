@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +41,7 @@ footer{text-align:center;padding:25px;color:#64748b}
 
 <header>
 <h1>📚 SSLC Paper Hub</h1>
-<p>Annual Exam • Previous Year • Model Papers</p>
+<p>Previous Year • Model Question Papers</p>
 <p>Study Smart • Practice Better</p>
 </header>
 
@@ -115,44 +116,35 @@ cbse:[
 
 const PAPER_LINKS = {
 state:{
-annual1:{},
-annual2:{},
 previous:{},
 model:{}
 },
 
 cbse:{
-annual1:{},
-annual2:{},
 previous:{},
 model:{}
 }
 };
 
 const examTypes = {
-annual1:"Annual Exam 1",
-annual2:"Annual Exam 2",
-previous:"Previous Year Papers",
+previous:"Previous Year Question Papers",
 model:"Model Question Papers"
 };
 
 const years = {
 state:{
-annual1:["2026","2025","2024"],
-annual2:["2026","2025","2024"],
 previous:["2026","2025","2024","2023","2022","2021"],
 model:["2026","2025","2024","2023"]
 },
 
 cbse:{
-annual1:["2026","2025","2024"],
-annual2:["2026","2025","2024"],
 previous:["2026","2025","2024","2023","2022","2021"],
 model:["2025-26","2024-25","2023-24","2022-23"]
 }
 };
 
 function openBoard(board){
+
 document.querySelectorAll(".section").forEach(s=>{
 s.classList.remove("active");
 });
@@ -191,7 +183,7 @@ tabBox.appendChild(btn);
 
 });
 
-showYears(board,"annual1");
+showYears(board,"previous");
 }
 
 function showYears(board,type){
@@ -200,14 +192,14 @@ const content=document.getElementById(board+"Content");
 
 content.innerHTML=`
 <h3>${examTypes[type]}</h3>
-<div class="years" id="yearButtons"></div>
+<div class="years" id="${board}YearButtons"></div>
 <input class="search"
 placeholder="🔎 Search Subject..."
-oninput="searchSubjects(this.value)">
-<div id="paperTable"></div>
+oninput="searchSubjects(this.value,'${board}')">
+<div id="${board}PaperTable"></div>
 `;
 
-const yearBox=document.getElementById("yearButtons");
+const yearBox=document.getElementById(board+"YearButtons");
 
 years[board][type].forEach((year,index)=>{
 
@@ -278,7 +270,7 @@ html+=`
 </div>
 `;
 
-document.getElementById("paperTable").innerHTML=html;
+document.getElementById(board+"PaperTable").innerHTML=html;
 }
 
 function viewPDF(encodedURL){
@@ -300,9 +292,9 @@ alert(subject+" PDF link ಇನ್ನೂ ಸೇರಿಸಿಲ್ಲ. ನಿಜ�
 
 }
 
-function searchSubjects(value){
+function searchSubjects(value,board){
 
-document.querySelectorAll("#paperTable tbody tr").forEach(row=>{
+document.querySelectorAll("#"+board+"PaperTable tbody tr").forEach(row=>{
 
 row.style.display=
 row.cells[0].textContent.toLowerCase().includes(value.toLowerCase())
